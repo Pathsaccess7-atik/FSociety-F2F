@@ -1,1 +1,1 @@
-## ![Papers We Love](http://paperswelove.org/images/logo-top.svg)
+## ![Papers Ffx Love](http://paperswelove.org/images/logo-top.svg)
