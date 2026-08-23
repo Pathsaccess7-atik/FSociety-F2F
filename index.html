@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloader Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Glassmorphism Container */
+        .glass-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 { margin-bottom: 20px; color: #fff; }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover { background: #e0e0e0; box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); }
+
+        #downloader-ui { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="login-ui" class="glass-box">
+        <h2>Welcome Soon 🍀</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkLogin()">Login</button>
+    </div>
+
+    <div id="downloader-ui" class="glass-box">
+        <h2>Video Downloader</h2>
+        <input type="text" id="videoUrl" placeholder="Paste Video Link (FB, Insta, YT)">
+        <button onclick="startDownload()">Download Now</button>
+        <p id="status" style="margin-top: 15px; font-size: 14px;"></p>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+ // Simple login check
+ 
+if(user === "atik" && pass === "atik") { document.getElementById('login-ui').style.display = 'none';
+
+                document.getElementById('downloader-ui').style.display = 'block';
+            } else {
+                alert("Wrong credentials!");
+            }
+        }
+
+        function startDownload() {
+            const url = document.getElementById('videoUrl').value;
+            const status = document.getElementById('status');
+
+            if(url === "") {
+                status.innerText = "Please paste a link first!";
+                status.style.color = "red";
+                return;
+            }
+
+            status.innerText = "Processing link... Please wait.";
+            status.style.color = "#00ff00";
+            
+            // Ekhane apnar backend API (Python/NodeJS) connect korte hobe
+            console.log("Downloading from: " + url);
+        }
+    </script>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
